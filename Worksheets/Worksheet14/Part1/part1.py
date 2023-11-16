@@ -22,12 +22,12 @@ for i in range(64):
 fig.show()
 fig.savefig('./resources/data')
 
-# Split data to training and testing data
+# Split data into training and testing data
 X_train, X_test, y_train, y_test = train_test_split(digits.data, digits.target, test_size=0.2, random_state=2023)
 print('Number of samples in training set: %d' % (len(y_train)))
 print('Number of samples in test set: %d' % (len(y_test)))
 
-# Standardise data , and fit only to the training data
+# Standardise training data's data and fit
 scaler = StandardScaler()
 scaler.fit(X_train)
 
@@ -43,7 +43,7 @@ mlp.fit(X_train_scaled, y_train)
 print("Training set score : %f" % mlp.score(X_train_scaled, y_train))
 print("Test set score : %f" % mlp.score(X_test_scaled, y_test))
 
-# Predict results.md from the test data
+# Predict results from the test data
 X_test_predicted = mlp.predict(X_test_scaled)
 
 fig = plt.figure(figsize=(8, 8))  # figure size in inches
