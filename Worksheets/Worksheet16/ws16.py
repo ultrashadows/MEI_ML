@@ -101,9 +101,10 @@ var_exp = [(i/tot)*100 for i in sorted(eig_vals, reverse=True)]
 cum_var_exp = np.cumsum(var_exp)
 print('Cumulative Variance Explained\n', cum_var_exp)
 
-plt.figure(figsize=(6, 4))
-plt.bar(range(4), var_exp, alpha=0.5, align='center', label='Individual Explained Variance')
-plt.step(range(4), cum_var_exp, where='mid', label='Cumulative Explained Variance')
+# Plot results
+plt.figure(figsize=(6, 8))
+plt.bar(range(8), var_exp, alpha=0.5, align='center', label='Individual Explained Variance')
+plt.step(range(8), cum_var_exp, where='mid', label='Cumulative Explained Variance')
 plt.ylabel('Explained Variance Ratio')
 plt.xlabel('Principal Components')
 plt.legend(loc='best')
